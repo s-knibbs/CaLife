@@ -9,15 +9,20 @@ function _getArguments()
     var fill = document.getElementById('fill').value;
     return ['-s', survives, '-b', born, '-f', fill];
 }
+Module['noInitialRun'] = true;
+Module['_started'] = false;
 Module['quit'] = function ()
 {
     Module.ccall('exitLoop');
 }
 Module['restart'] = function ()
 {
-    Module.quit();
-    arguments = _getArguments();
-    Module.callMain(arguments);
+    if (Module['_started'])
+    {
+        Module.quit();
+    }
+    Module.callMain(_getArguments());
+    Module['_started'] = true;
 }
 Module['_running'] = true;
 Module['toggleMainLoop'] = function ()

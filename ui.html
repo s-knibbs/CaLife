@@ -32,11 +32,13 @@
       }
 
       #controls {
-        display: inline-block;
-        float: right;
         vertical-align: top;
-        margin-top: 30px;
-        margin-right: 20px;
+        margin-right: 10px;
+      }
+
+      #canvas {
+        height: 600px;
+        max-width: 100%;
       }
 
       #output {
@@ -57,6 +59,7 @@
 
       ul {
         list-style-type: none;
+        padding-left: 5px;
       }
       li {
         padding-top: 5px;
@@ -81,7 +84,9 @@
     <span><label for="setDyingColour">Dying cell colour:</label><input autocomplete="off" type="color" name="setDyingColour" value="#a4e443" onchange="Module.setDyingColour(this.value)"></span>
   </li>
   <li>
-    <span><input type="button" value="Restart" onclick="Module.restart()"></span>
+    <span><input type="button" value="Run/Restart" onclick="Module.restart()"></span>
+  </li>
+  <li>
     <span><input type="button" value="Fullscreen" onclick="Module.requestFullScreen(true,false)"></span>
     <span><input type="button" value="Pause/Resume" onclick="Module.toggleMainLoop()"></span>
   </li>
@@ -91,9 +96,7 @@
     <div class="emscripten">
       <progress value="0" max="100" id="progress" hidden=1></progress>
     </div>
-
-    
-    <div class="emscripten_border">
+    <div class="canvas-container">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
     <textarea id="output" rows="8"></textarea>
