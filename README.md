@@ -5,6 +5,8 @@
 
 The app can be launched from the command-line but has also been adapted to run within a browser using [Emscripten](https://kripken.github.io/emscripten-site/index.html).
 
+See a demo of it in [action here](https://s-knibbs.github.io/blog/2016/09/08/experimenting-with-cellular-automata/#demo)
+
 ## Building Standalone
 
 To build within a linux environment, first install SDL2. For a debian based distribution:
